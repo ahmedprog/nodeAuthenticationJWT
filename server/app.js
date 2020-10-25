@@ -1,20 +1,10 @@
 'use strict'
 const express = require('express')
-const DB = require('./db')
-const config = require('./config')
-// use bcrypt to hash passwords
-const bcrypt = require('bcrypt')
-// use jsonwebtoken (jwt authentication users) .
-const jwt = require('jsonwebtoken')
-// use bodyParser To read json dat
 const bodyParser = require('body-parser')
-
-const db = new DB('sqlitedb')
 
 const app = express()
 const router = express.Router()
-const register = require('./auth/register')
-const login = require('./auth/login')
+const auth = require('./auth')
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
@@ -29,10 +19,10 @@ const allowCrossDomain = function (req, res, next) {
 
 app.use(allowCrossDomain)
 // start registertion user.
-router.post('/register', register.doRegister)// end register.
+router.post('/register', auth.doRegister)// end register.
 
 // start login.
-router.post('/login', login.doLogin)// end login.
+router.post('/login', auth.doLogin)// end login.
 
 app.use(router)
 
