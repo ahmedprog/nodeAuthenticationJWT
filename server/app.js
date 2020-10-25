@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const router = express.Router()
 const auth = require('./auth')
+const path = require('path');
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
@@ -19,6 +20,9 @@ const allowCrossDomain = function (req, res, next) {
 
 app.use(allowCrossDomain)
 // start registertion user.
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'));
+}) // end register.
 router.post('/register', auth.doRegister)// end register.
 
 // start login.
