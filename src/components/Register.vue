@@ -86,7 +86,7 @@ export default {
       e.preventDefault()
 
       if (this.registerForm.password === this.registerForm.password_confirmation && this.registerForm.password.length > 0) {
-        let url = 'http://localhost:3000/register'
+        let url = 'https://nodens-auth.herokuapp.com/register'
         this.$http.post(url, {
           name: this.registerForm.name,
           email: this.registerForm.email,

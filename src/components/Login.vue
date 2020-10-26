@@ -41,7 +41,7 @@ export default {
     handleSubmitLogin (e) {
       e.preventDefault()
       if (this.loginForm.password.length > 0) {
-        this.$http.post('http://localhost:3000/login', {
+        this.$http.post('https://nodens-auth.herokuapp.com/login', {
           email: this.loginForm.email,
           password: this.loginForm.password
         })

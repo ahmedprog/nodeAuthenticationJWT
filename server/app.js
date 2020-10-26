@@ -21,7 +21,7 @@ const allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain)
 // start registertion user.
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/index.html'))
 }) // end register.
 router.post('/register', auth.doRegister)// end register.
 

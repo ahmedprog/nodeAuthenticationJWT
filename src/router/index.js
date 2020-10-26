@@ -8,7 +8,7 @@ import ProfilePage from '@/components/ProfilePage'
 Vue.use(Router)
 
 let router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
